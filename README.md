@@ -733,9 +733,88 @@ public class Main {
 
 ## Conditions and if Statements
 
--  
-- 
-- 
-- 
-- 
-- 
+-  小於<
+-  小於或等於<=
+-  大於>
+-  大於或等於>=
+-  等於==
+-  不等於!=
+
+利用以上條件針對不同決策執行不同的操作
+
+- if
+- else
+- else if
+- switch 指定用來執行替代程式碼的區塊
+
+## 語法
+
+### if
+```
+public class Main {
+    public static void main(String[] arg) {
+        if (20 > 18) {
+            System.out.println("Is true");
+        }
+    }
+}
+```
+
+### else if
+當第一個條件不符合時，再比較的條件，若符合則執行區塊中的程式碼
+```
+public class Main {
+    public static void main(String[] arg) {
+        int value = 20;
+        if (value > 18) {
+            System.out.println("block 1");
+        } else if (value == 20) {
+            System.out.println("block 2");     // 會執行這行
+        } else {
+            System.out.println("block 3");
+        }
+    }
+}
+```
+
+### else
+當所有條件都不符合時，則執行這區塊中的程式碼
+```
+public class Main {
+    public static void main(String[] arg) {
+        int value = 20;
+        if (value < 18) {
+            System.out.println("Is true");
+        } else {
+            System.out.println("Is false");
+        }
+    }
+}
+```
+
+## Short Hand if...esle 
+
+三元運算子 以一行程式碼取代多行
+
+```
+public class Main {
+    public static void main(String[] arg) {
+        int time = 20;
+        if (time < 18) {
+        System.out.println("Good day.");
+        } else {
+        System.out.println("Good evening.");
+        }
+    }
+}
+```
+可以寫成
+```
+public class Main {
+    public static void main(String[] arg) {
+        int time = 20;
+        String result = (time < 18) ? "Good day." : "Good evening.";
+        System.out.println(result);
+    }
+}
+```
