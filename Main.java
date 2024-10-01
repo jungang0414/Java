@@ -1,12 +1,9 @@
-// 
-
+//
 public class Main {
     public static void main(String[] arg) {
-        int time = 20;
-        if (time < 18) {
-        System.out.println("Good day.");
-        } else {
-        System.out.println("Good evening.");
+        String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+        for (int i = 0; i < cars.length; i++) {
+            System.out.println(cars[i]);
         }
     }
 }

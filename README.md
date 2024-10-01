@@ -120,8 +120,8 @@ public class Main {
 
 - String - 儲存字串，字串值必須使用雙引號包起來
 - int - 儲存整數，不包含小數
-- float - 儲存帶小數值的浮點數，ex: 19.99
-- char - 儲存單一字串，ex: 'a', 'B'，char值是使用單引號包起來
+- float - 儲存帶小數值的浮點數，e.g.:: 19.99
+- char - 儲存單一字串，e.g.:: 'a', 'B'，char值是使用單引號包起來
 - boolean - 儲存兩種狀態的值，true or false
 
 ## Declaring Variables
@@ -157,7 +157,7 @@ public class Main {
 }
 ```
 
-ex 額外宣告變數的示例
+e.g.: 額外宣告變數的示例
 
 ```
 float myFloat = 5.99f;
@@ -243,7 +243,7 @@ int m = 60;
 
 在Java中，宣告變數必需事先指定變數的資料類型。
 
-ex: 
+e.g.:
 ```
 int myNum = 5;
 float myFloatNum = 5.99f;
@@ -271,7 +271,7 @@ boolean myBool = true;
 | boolean | 1 bit   | 儲存 true or false |
 | char    | 2 bytes | 儲存單一字元/字母 or ASCII 值  |
 
-ex:
+e.g.:
 ```
 public class Main {
     public static void main(String[] args) {
@@ -356,7 +356,7 @@ System.out.println(isJavaNotFun);  // Outputs false
 
 ### Characters 
 
-char 用來儲存單一字元/字母，必需使用單引號括號起來。 ex: 'A'
+char 用來儲存單一字元/字母，必需使用單引號括號起來。 e.g.: 'A'
 
 ```
 char myChar = 'A';
@@ -371,7 +371,7 @@ System.out.println(myVal); // A
 
 ### Strings
 
-String 用來儲存字串，必需使用雙引號括號起來。 ex: "A"
+String 用來儲存字串，必需使用雙引號括號起來。 e.g.: "A"
 
 ```
 Srting myStr = "A";
@@ -728,7 +728,7 @@ public class Main {
 }
 ```
 
-**布林值是比較運算的基礎 ex: if..else**
+**布林值是比較運算的基礎 e.g.: if..else**
 
 
 ## Conditions and if Statements
@@ -816,5 +816,277 @@ public class Main {
         String result = (time < 18) ? "Good day." : "Good evening.";
         System.out.println(result);
     }
+}
+```
+
+## Switch
+
+當過多條件時使用if...else可能使程式碼變得較為複雜難讀
+
+1. if...else 可以處理任何類型的條件，並可以嵌套多個來處理複雜邏輯
+2. switch 只能處理整數、字元、字串的變數，不能處理布林、或複雜的邏輯。
+
+- 表達式條件僅執行一次
+- 將條件的值與每一種情況的值進行比較
+- 當值相等時，則執行相關聯的程式碼區塊
+- switch可以使用兩種關鍵字, break and default
+
+### break
+
+用來標記程式碼區塊，當執行完該程式碼區塊後就跳出switch.
+因為switch會檢查表達式中所有的情況，使用break可以在找到答案時結束，不檢查剩餘情況而避免花費過多時間。
+
+e.g.: 當條件值等於case 4 會印出4 5 6 7
+```
+int day = 4;
+switch (day) {
+    case 1:
+        System.out.println("1");
+    case 2:
+        System.out.println("2");
+    case 3:
+        System.out.println("3");
+    case 4:
+        System.out.println("4");
+        // 加入break 就會在這邊結束整個switch
+        break; 
+    case 5:
+        System.out.println("5");
+    case 6:
+        System.out.println("6");
+    case 7:
+        System.out.println("7");
+}
+```
+
+### default
+
+當所有情況皆不符合時則執行
+
+```
+public class Main {
+    public static void main(String[] arg) {
+        int i = 5;
+        switch (i) {
+            case 1:
+                System.out.println("none");
+            case 2:
+                System.out.println("none");
+            case 3:
+                System.out.println("none");
+            case 4:
+                System.out.println("none");
+            default:
+                System.out.println(i);
+        }
+    }
+}
+```
+
+# Java Loop
+
+當達成指定條件時，迴圈就可以執行一段程式碼。
+節省時間、增加程式碼可讀性
+
+## While
+
+當條件為真，則執行while程式碼區塊中的程式碼
+```
+while (條件) {
+    // 程式碼區塊
+}
+
+// e.g.:
+public class Main {
+    public static void main(String[] arg) {
+        int i = 0;
+        while (i < 5) {
+            System.out.println(i);
+            i++;
+        }
+    }
+}
+
+/* 
+0 
+1
+2
+3
+4
+*/
+```
+
+## Do/While
+
+此迴圈與while唯一的不同是，一定會先執行一次程式碼後再判斷是否符合條件。
+
+e.g.:
+```
+public class Main {
+    public static void main(String[] arg) {
+        int i = 0;
+        do {
+            System.out.println(i);  // 會印出0
+            i++;
+        }
+        while (i > 5);
+    }
+}
+```
+
+## For
+
+當明確知道要執行多少次迴圈時，使用for迴圈
+
+- statement 1 : 在程式碼執行前先執行一次，通常是宣告起始變數
+- statement 2 : 程式碼區塊執行的條件
+- statement 3 : 在程式碼區塊執行後執行(每一次)
+
+```
+for (statement 1; statement 2; statement 3) {
+    // 程式碼區塊
+}
+
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+```
+
+依照程式碼順序
+1. 首先會先宣告變數i為整數並賦值為0。
+2. 接著比對程式碼條件 i 小於 5 的話，就執行程式碼區塊中的程式碼。
+3. 完整執行一次程式碼區塊後，會將 i 加 1，再比對一次條件。
+4. 直到不符合條件後。
+
+## Nested
+
+巢狀迴圈，外層迴圈每一次條件成立時，都會執行一次內層迴圈。
+
+```
+public class Main {
+    public static void main(String[] arg) {
+        for (int i = 0; i <= 2; i++) {
+            System.out.println("Outer " + i);
+
+        // INNER
+            for (int j = 0; j <= 3; j++) {
+                System.out.println("Inner " + j);
+            }
+        }
+    }
+}
+```
+
+## For-each
+
+循環數組
+
+```
+for (type variableName : arrayName) {
+    // 程式碼區塊
+}
+
+// e.g.
+public class Main {
+    public static void main(String[] arg) {
+        String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+        for (String i : cars) { 
+            System.out.println(i);
+        }
+    }
+}
+```
+
+# Java Brack and Continue
+
+### Break
+
+break可以跳離當前迴圈
+
+e.g. 只會印出 0~3 
+```
+for (int i = 0; i < 10; i++) {
+    if (i == 4) {
+        break;
+    }
+    System.out.println(i);
+}
+```
+
+### Continue
+
+continue可以跳離當前迴圈中的迭代
+
+```
+public class Main {
+    public static void main(String[] arg) {
+        for (int i = 0; i < 10; i++) {
+            // 印出除了4以外的值 0~10
+            if (i == 4) {
+                continue;
+            }
+            System.out.println(i);
+        }
+    }
+}
+```
+
+# Java Array
+
+數組是指在單一變數當中儲存多個值。
+
+> type[] variableName = {"value1", "value2", "value3"};
+
+e.g.:
+```
+String[] cars = {"Volvo, "BMW", "Ford"};
+
+int[] nums = {10, 20, 30};
+```
+
+要存取數組可以依照數組的索引值進行存取，索引值從0開始計算
+
+```
+public class Main {
+    public static void main(String[] arg) {
+        int[] nums = {10, 20, 30};
+        System.out.println(nums[0]); // 10
+    }
+}
+```
+
+要變更數組內的數值，依照索引值進行變更
+
+e.g.:
+```
+int[] nums = {10, 20, 30};
+nums[0] = 20;
+System.out.println(nums[0]); // 20
+```
+
+## Array Length
+
+可以使用length內建屬性，計算數組長度(數量)
+
+```
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+System.out.println(cars.length); // 4
+```
+
+結合迴圈，循環遍歷數組
+
+e.g.: 根據索引值取得數組內元素
+```
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+for (int i = 0; i < cars.length; i++) {
+    System.out.println(cars[i]);
+}
+```
+
+e.g.: for-Each 專門用來循環遍歷數組內元素的方法
+```
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+for (String i : cars) {
+    System.out.println(i);
 }
 ```
