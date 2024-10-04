@@ -1111,3 +1111,363 @@ for (int i = 0; i < myNumbers.length; ++i) {
   }
 }
 ```
+
+# Java Methods
+
+方法是當程式呼叫時才會執行的一段程式碼又稱函數
+可以將資料傳遞給函數。
+
+
+## Create a Method
+
+- myMethod() : 自訂函數名稱
+- static : 表示此函數屬於 Main class 但不屬於 Main class 對象
+- void : 表示此方法沒有回傳值
+
+e.g.
+
+```
+public class Main {
+    static void myMethod() {
+        // 程式碼執行區塊
+    }
+}
+```
+
+## Call a Method
+
+呼叫函數
+函數名稱加上括號，並在後面加上分號
+
+```
+public class Main {
+    static void myMethod() {
+        System.out.println("executed");
+    }
+
+    public static void main(String[] args) {
+        myMethod();
+    }
+}
+```
+
+## Parameters and Arguments
+
+參數與引數
+參數傳遞給函數，並在函數中作為變數使用
+引數則是在呼叫函數時傳入的值
+
+```
+public class Main {
+    // Parameters : fname 參數傳遞給函數作為變數
+    static void myMethod(String fname) {
+        System.out.println(fname + " Refsnes");
+    }
+
+    public static void main(String[] args) {
+        // Arguments : Liam 引數作為值傳遞給方法
+        myMethod("Liam");
+    }
+}
+```
+
+可以傳遞任意數量的參數
+
+```
+public class Main {
+    static void myMethod(String fname, int age) {
+        System.out.println(fname + " Refsnes");
+        System.out.println("Age: " + age);
+    }
+
+    public static void main(String[] args) {
+        myMethod("Liam", 28);
+    }
+}
+```
+
+在函數內常會使用if...Else
+
+```
+public class Main {
+    static void checkAge(int age) {
+        
+        if (age >= 18) {
+            System.out.println("LEGAL");
+        } else {
+            System.out.println("Illegal");
+        }
+    }
+
+    public static void main(String[] args) {
+        checkAge(18);
+    }
+}
+```
+
+## Return values 回傳
+
+在之前的所有範例都有使用 void 這代表此函數不回傳值。
+若希望函數有回傳值，則可以用原始資料類別代替 void 並在函數內部使用 return 將值回傳。
+
+```
+public class Main {
+    static int myMethod(int num) {
+        // num 作為變數傳入函數
+        // 5 + 3
+        // 回傳 8
+        return num + 3;
+    }
+
+    public static void main(String[] args) {
+        // 5 作為呼叫函數時的引數傳入函數中使用
+        
+        // 印出 8
+        System.out.println(myMethod(5));
+    }
+}
+```
+
+將回傳值用變數儲存起來，較易於管理與閱讀
+
+```
+public class Main {
+    static int checkout(int x, int y) {
+        return x + y;
+    }
+
+    public static void main(String[] args) {
+        int num = checkout(10, 20);
+        System.out.println(num);
+    }
+}
+```
+
+## Overloading
+
+透過函數重載，相同函數名稱可以有不同的參數傳遞 
+只要參數的型別/數量不同就可以透過函數重載
+
+```
+public class Main {
+    static int myNum(int x, int y) {
+        return x + y;
+    }
+
+    static double myNum(double x, double y) {
+        return x + y;
+    }
+
+    public static void main(String[] args) {
+        int IntNum = myNum(10, 20);
+        double doubleNum = myNum(8.1, 21.9);
+        System.out.println(IntNum);
+        System.out.println(doubleNum);
+    }
+}
+```
+
+
+## Scope
+
+在Java當中，變數只能在它們建立的區域內進行存取，又稱函數作用域
+而函數作用域，則是指在{}當中的所有程式碼，存取變數必須在宣告變數行之後。
+
+```
+public class Main {
+    public static void main(String[] args) {
+
+        // 在這裡存取變數 x 會出現錯誤 因為{}範圍中並未宣告 x
+        // 這邊也無法訪問下方的{}去存取 x 的值
+        // System.out.println(x);
+
+        {
+            // 在這範圍中有宣告 x 所以可以存取變數 x 
+            int x = 100;
+            System.out.println(x);
+        }
+    }
+}
+```
+
+# Java Recursion 遞迴
+
+- 遞迴函數是指呼叫自己的函數
+- 遞迴函數必須要有能夠停止遞迴的條件，否則會陷入無限遞迴的情況
+
+e.g.: 以下範例為將一系列的數字相加
+
+1. 在main當中呼叫sum函數，並傳入10作為引數
+2. 而sum函數接受10這個引數值，開始執行函數作用域當中的程式碼
+3. 這邊用if...else 回傳引數值並加上再呼叫自己 停止遞迴的條件為當引數值等於0時則結束 
+4. 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 + sum(0);
+5. 55
+
+```
+public class Main {
+    public static void main(String[] args) {
+        int result = sum(10);
+        System.out.println(result);
+    }
+
+    // 遞迴
+    public static int sum(int k) {
+        if (k > 0) {
+            return k + sum(k - 1);
+        } else {
+            return 0;
+        }
+    }
+}
+```
+
+e.g.: 將5~10之間數相加 當 end 不大於 start
+
+```
+public class Main {
+    public static void main(String[] args) {
+        int result = sum(5, 10);
+        System.out.println(result); // 45
+    }
+
+    public static int sum(int start, int end) {
+        
+        if (start < end) {
+            return end + sum(start, end - 1);
+        } else {
+            return end;
+        }
+    }
+}
+```
+
+# Java Classes
+
+## OOP 物件程式導向語言
+
+- keep the Java code DRY，易於維護、修改及調試
+- 建立可重用應用程式
+
+類別是物件的模板，物件則是類別的實例
+
+e.g.: 
+- 類別 水果, 物件 蘋果, 西瓜, 草莓
+- 類別 車,   物件 BMW, Toyota, Volvo
+
+## Class
+
+create a class, use the keyword class:
+
+```
+public class Main {
+    int x = 5;
+}
+```
+
+**類別的名稱首字需大寫，並且與.java檔案名稱相同**
+
+## Object
+
+object is create from a class
+若要建立Main的物件，類別名稱 物件名稱 new 類別名稱();
+
+```
+public class Main {
+    int x = 5;
+
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        System.out.println(myObj.x);
+    }
+}
+```
+
+## Multiple Objects
+
+一個類別可以有多個物件 e.g.: 類別為汽車, 物件1 Toyota, 物件2 Audi, 物件3 volvo
+可以變更單一對象中的屬性值，而不會互相影響
+
+```
+public class Cars {
+    // 類別當中的屬性
+    int 輪胎 = 4;
+    int 引擎 = 1;
+    int 方向盤 = 1;
+    public static void main(String[] args) {
+        Cars toyota = new Cars();
+        Cars audi = new Cars();
+        Cars volvo = new Cars();
+        // volvo 增加為雙引擎
+        volvo.引擎 = 2;
+        System.out.println(toyota.輪胎)  // 4
+        System.out.println(audi.引擎)    // 1 不會因為volvo的屬性值修改為2就變成2
+        System.out.println(volvo.方向盤) // 1
+    }
+}
+```
+
+## Multiple Classes
+
+也可以創建一個類別的物件，並在另一個類別中存取它。
+> 一個類別擁有所有屬性和方法，另一個類別則擁有main()方法要執行的程式碼
+
+```
+// Main.java
+public class Main {
+    int x = 10;
+}
+
+// Second.java
+class Second {
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        System.out.println(myObj); // 10
+    }
+}
+```
+
+## Attributes
+
+e.g.:
+類別屬性，或者是類別中的變數
+在這裡 x, y 是 Main類別中的屬性也稱作變數
+
+```
+public class Main {
+    int x = 5;
+    int y = 3;
+}
+```
+e.g.:
+建立類別的物件並使用點語法(.)來存取、修改屬性。
+若不想讓屬性可變則可以在類別宣告前加上 final
+
+```
+public class Main {
+    int x = 5;
+
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        // myObj.x = 15; // 修改類別中的屬性 x
+        System.out.println(myObj.x);  // 5
+        // System.out.println(myObj.x); // 15
+    }
+}
+```
+
+e.g.:在一個類別當中可以建立任意數量的屬性
+
+```
+public class Main {
+    // 這裡建立了三個屬性, fname, lname, age
+    String fname = "John";
+    String lname = "Doe";
+    int age = 24;
+
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        System.out.println(myObj.fname + " " + myObj.lname);
+        System.out.println("Age:" + myObj.age);
+    }
+}
+```

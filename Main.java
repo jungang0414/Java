@@ -1,9 +1,13 @@
 //
 public class Main {
-    public static void main(String[] arg) {
-        String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
-        for (int i = 0; i < cars.length; i++) {
-            System.out.println(cars[i]);
-        }
+
+    String fname = "John";
+    String lname = "Doe";
+    int age = 24;
+
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        System.out.println(myObj.fname + " " + myObj.lname);
+        System.out.println("Age:" + myObj.age);
     }
 }
