@@ -1471,3 +1471,61 @@ public class Main {
     }
 }
 ```
+
+## Methods (Static vs Public)
+
+在一個類別當中可以有多種方法
+
+### Static Method
+
+靜態方法不用建立物件即可呼叫
+
+### Public Method
+
+公共方法則需要建立物件才可呼叫
+
+```
+public class Main {
+
+    static void myStaticMethod() {
+        System.out.println("Static");
+    }
+
+    public void myPublicMethod() {
+        System.out.println("Public");
+    }
+
+    public static void main(String[] args) {
+        myStaticMethod();
+        // myPublicMethod(); // error: non-static method myPublicMethod() cannot be referenced from a static context
+
+        // 建立Main類別的物件 myObj 並呼叫物件的公共方法
+        Main myObj = new Main();
+        myObj.myPublicMethod();
+    }
+}
+```
+
+## Access Methods With an Object
+
+如何使用物件存取方法
+e.g.: 建立一個名稱為 myCars 的 Car物件, 呼叫在myCars物件中的方法, fullThrottle() and speed()
+
+```
+public class Main {
+
+    public void fullThrottle() {
+        System.out.println("The car");
+    }
+
+    public void speed(int maxSpeed) {
+        System.out.println("Max Speed: " + maxSpeed);
+    }
+
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        myObj.fullThrottle();
+        myObj.speed(200);
+    }
+}
+```

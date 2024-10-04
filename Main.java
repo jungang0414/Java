@@ -1,13 +1,11 @@
-//
+// Static & Public
 public class Main {
 
-    String fname = "John";
-    String lname = "Doe";
-    int age = 24;
+    public void fullThrottle() {
+        System.out.println("The car");
+    }
 
-    public static void main(String[] args) {
-        Main myObj = new Main();
-        System.out.println(myObj.fname + " " + myObj.lname);
-        System.out.println("Age:" + myObj.age);
+    public void speed(int maxSpeed) {
+        System.out.println("Max Speed: " + maxSpeed);
     }
 }
