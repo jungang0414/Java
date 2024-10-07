@@ -1641,3 +1641,42 @@ public class Main {
     }
 }
 ```
+
+#### Abstract
+
+當定義了抽象類別、方法
+
+1. 抽象類別不可實例化
+2. 抽象方法沒有方法體，必須由子類別中實現
+3. 子類別必須實現繼承的類別中的所有抽象方法
+
+Main.java
+```
+abstract class Main {
+    public String fname = "John";
+    public int age = 24;
+    // abstract 這裡定義了一個抽象方法study();
+    public abstract void study();
+}
+
+// student類別繼承了抽象類別 Main，所以必須要實現Main類別當中 study()方法
+class Student extends Main {
+    public int year = 2000;
+    public void study() {
+        System.out.println("Studying");
+    }
+}
+```
+
+Second.java
+```
+class Second {
+    public static void main(String[] args) {
+        Student myObj = new Student();
+
+        System.out.println(myObj.fname);
+        System.out.println(myObj.age);
+        myObj.study();
+    }
+}
+```

@@ -1,11 +1,14 @@
 // Modifiers
-public class Main {
+abstract class Main {
+    public String fname = "John";
+    public int age = 24;
+    // abstract
+    public abstract void study();
+}
 
-    static void myStatic() {
-        System.out.println("Static");
-    }
-
-    public static void main(String[] args) {
-        myStatic();
+class Student extends Main {
+    public int year = 2000;
+    public void study() {
+        System.out.println("Studying");
     }
 }
