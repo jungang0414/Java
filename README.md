@@ -1680,3 +1680,46 @@ class Second {
     }
 }
 ```
+
+## Encapsulation
+
+封裝是為了將敏感資料對使用者隱藏
+
+- 將類別/屬性宣告私有(Private)
+- 提供公開的 get and set方法來存取和更新私有變數的值
+
+e.g.: 
+作為 private 宣告的私有變數只能在宣告的類別中存取
+但如果提供公開的get and set方法就可以存取和修改私有變數
+
+Main.java
+```
+// private 
+public class Main {
+    private int result = 10;
+
+    public int getNum() {
+        return result;
+    }
+
+    // 這裡的this用來明確表示正在訪問類別的result屬性
+    public int setNum(int value) {
+        this.result = value;
+        return this.result;
+    }
+}
+```
+
+Second.java
+```
+class Second {
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        // 因為是私有變數所以無法直接修改，需要透過類別中公開的方法來取得變數值或修改變數值
+        // myObj.result = 20; // error: result has private access in Main
+        // System.out.println(myObj.result); // error: result has private access in Main
+        myObj.setNum(20);
+        System.out.println(myObj.getNum()); // 20
+    }
+}
+```

@@ -1,14 +1,14 @@
-// Modifiers
-abstract class Main {
-    public String fname = "John";
-    public int age = 24;
-    // abstract
-    public abstract void study();
-}
+// private 
+public class Main {
+    private int result = 10;
 
-class Student extends Main {
-    public int year = 2000;
-    public void study() {
-        System.out.println("Studying");
+    public int getNum() {
+        return result;
+    }
+
+    // 這裡的this用來明確表示正在訪問類別的result屬性
+    public int setNum(int value) {
+        this.result = value;
+        return this.result;
     }
 }
