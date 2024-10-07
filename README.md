@@ -1626,3 +1626,18 @@ public class Main {
     }
 }
 ```
+
+#### Static
+
+```
+public class Main {
+
+    static void myStatic() {
+        System.out.println("Static");
+    }
+
+    public static void main(String[] args) {
+        myStatic(); // 無須建立類別的物件即可存取
+    }
+}
+```

@@ -1,12 +1,11 @@
 // Modifiers
 public class Main {
-    final int x = 10;
-    final double PI = 0.01;
+
+    static void myStatic() {
+        System.out.println("Static");
+    }
 
     public static void main(String[] args) {
-        Main myObj = new Main();
-        myObj.x = 50;
-        myObj.PI = 25;
-        System.out.println(myObj.x);
+        myStatic();
     }
 }
