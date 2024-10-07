@@ -1,10 +1,12 @@
-// Constructors
+// Modifiers
 public class Main {
-    String carName;
-    int carNum;
+    final int x = 10;
+    final double PI = 0.01;
 
-    public Main(String txt1, int num1) {
-        carName = txt1;
-        carNum = num1;
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        myObj.x = 50;
+        myObj.PI = 25;
+        System.out.println(myObj.x);
     }
 }

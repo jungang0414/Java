@@ -1579,3 +1579,50 @@ class Second {
 
 **所有類別皆會有建構函數，當沒有特別設置時Java會自行建立，缺點是無法自行設定初始值。**
 
+## Modifiers 修飾字符
+
+> 存取修飾字符 用於設定類別、屬性、方法及建構函數的存取級別。
+
+類別關鍵字: 
+
+- public  : 該類別允許所有類別皆可存取
+- default : 該類別只允許在同一包中的類別存取
+
+屬性、方法及建構函數關鍵字:
+
+- public    : 所有類別皆可存取程式碼
+- private   : 只允許在聲明程式碼的類別中存取
+- protected : 可在同一個package和子類別中存取 (繼承)
+- defaule   : 若未指定字符，則只允許在同一個package中存取程式碼。
+
+> 非存取修飾字符
+
+類別關鍵字:
+
+- final    : 用於標示該類別不能被其他類別所繼承
+- abstract : 該類別不能用於建立物件
+
+屬性、方法關鍵字:
+
+- final        : 該屬性、方法不能被覆寫、修改。
+- static       : 屬性、方法屬於類別而非物件。
+- abstract     : 只可用在抽象類別上，並只能用於方法上。
+- transient    : 序列化包含屬性、方法的物件時會跳過它。
+- synchronized : 方法一次只能被一執行緒執行。
+- volatile     : 屬性不會在本地緩存，始終由主內存中讀取。
+
+#### Final
+
+```
+public class Main {
+    final int x = 10;
+    final double PI = 0.01;
+
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        myObj.x = 50;
+        myObj.PI = 25;
+        System.out.println(myObj.x); // error: cannot assign a value to final variable x
+    }
+}
+```
