@@ -1530,3 +1530,52 @@ public class Main {
 }
 ```
 
+## Constructors 建構函數
+
+用於初始化物件，當創建類別的物件時呼叫建構函數，並設定物件屬性的初始值。
+- 建構函數必須與類別的名稱相同
+- 建構函數不能有 void 
+
+```
+public class Main {
+    
+    // create Constructors
+    public Main() {
+        x = 5;
+    }
+
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        System.out.println(myObj.x);
+    }
+}
+```
+
+e.g.: 帶參數的建構函數
+
+Main.java
+```
+public class Main {
+    String carName;
+    int carNum;
+
+    public Main(String txt1, int num1) {
+        carName = txt1;
+        carNum = num1;
+    }
+}
+```
+
+Second.java
+```
+class Second {
+    public static void main(String[] args) {
+        Main myObj = new Main("Toyota", 1007);
+        System.out.println(myObj.carName);
+        System.out.println(myObj.carNum);
+    }
+}
+```
+
+**所有類別皆會有建構函數，當沒有特別設置時Java會自行建立，缺點是無法自行設定初始值。**
+

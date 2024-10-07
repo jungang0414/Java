@@ -1,11 +1,10 @@
-// Static & Public
+// Constructors
 public class Main {
+    String carName;
+    int carNum;
 
-    public void fullThrottle() {
-        System.out.println("The car");
-    }
-
-    public void speed(int maxSpeed) {
-        System.out.println("Max Speed: " + maxSpeed);
+    public Main(String txt1, int num1) {
+        carName = txt1;
+        carNum = num1;
     }
 }
