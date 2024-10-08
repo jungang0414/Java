@@ -1843,6 +1843,50 @@ class Dog extends Animal {
 }
 ```
 
+## Polymorphism
 
+多態性意謂著多種形式 -
+當有許多透過繼承相互關聯的類別時。
+
+e.g.: 
+動物都會叫，不過各自都有各自的叫聲(多種形式)
+都分別各自有animalSound()這個方法
+```
+// Polymorphism
+
+// superclass
+class Animal {
+    public void animalSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+
+// subclass extends superclass
+class Dog extends Animal {
+    public void animalSound() {
+        System.out.println("The dog says: bow wow");
+    }
+}
+
+class Pig extends Animal {
+        public void animalSound() {
+        System.out.println("The pig says: wee wee");
+    }
+}
+// create Main
+
+class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        Dog dog = new Dog();
+        Pig pig = new Pig();
+
+        animal.animalSound();
+        dog.animalSound();
+        pig.animalSound();
+    }
+}
+
+```
 
 

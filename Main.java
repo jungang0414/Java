@@ -1,14 +1,34 @@
-// private 
-public class Main {
-    private int result = 10;
+// Polymorphism
 
-    public int getNum() {
-        return result;
+// superclass
+class Animal {
+    public void animalSound() {
+        System.out.println("The animal makes a sound");
     }
+}
 
-    // 這裡的this用來明確表示正在訪問類別的result屬性
-    public int setNum(int value) {
-        this.result = value;
-        return this.result;
+// subclass extends superclass
+class Dog extends Animal {
+    public void animalSound() {
+        System.out.println("The dog says: bow wow");
+    }
+}
+
+class Pig extends Animal {
+        public void animalSound() {
+        System.out.println("The pig says: wee wee");
+    }
+}
+
+// create Main
+class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        Dog dog = new Dog();
+        Pig pig = new Pig();
+
+        animal.animalSound();
+        dog.animalSound();
+        pig.animalSound();
     }
 }
