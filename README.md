@@ -1796,3 +1796,53 @@ java mypack.MyPackageClass
 
 4. output
 > This is my package!
+
+# Java Inheritance
+
+可以將一個類別當中的屬性/方法，繼承到另一個類別當中使用。
+在建立新類別時可以重複使用現有類別中的屬性和方法。提供程式碼的重複使用性
+
+#### 繼承則分為兩種方式
+
+> 繼承就像是「家族遺傳」。你可以把一個類別（超類別）當作父母，另一個類別（子類別）當作孩子。孩子會繼承父母的一些特徵（屬性和方法），但也可以有自己的特徵。
+
+superclass(超類別)
+
+- 超類別就像是父母，定義了一些基本的特徵和行為。
+- 假設有一個動物類別(Animal)，它有一個方法是eat()，表示動物會吃東西。
+
+subclass(子類別)
+
+- 子類別就像是孩子，繼承了父母的特徵和行為，但也有自己的特徵和行為。
+- 假設有一個狗類別(Dog)，它繼承了動物類別(Animal)，所以它也有eat()方法，此外狗還有自己的方法bark()，表示狗會叫。
+
+```
+// 若是不想讓其他類別繼承 則可以使用 final
+// final class Animal
+class Animal {
+    // 在這邊使用protected(受保護的存取修飾字符)供子類別可以存取
+    protected String name = "bingo";
+    public void eat() {
+        System.out.println("can eat!");
+    }
+}
+
+// 當子類別要繼承父類別時要使用 extends關鍵字
+class Dog extends Animal {
+
+    public void bark() {
+        System.out.println("can bark!");
+    }
+
+    public static void main(String[] args) {
+        Dog myObj = new Dog();
+        System.out.println(myObj.name);
+        myObj.eat();
+        myObj.bark();
+    }
+}
+```
+
+
+
+
