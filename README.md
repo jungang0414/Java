@@ -1723,3 +1723,41 @@ class Second {
     }
 }
 ```
+
+# Java Packages / API
+
+- Built-in Packages (packages from the Java API)
+- User-defined Packages (create your own packages)
+
+## Built-in Packages
+
+[Java API](https://docs.oracle.com/javase/8/docs/api/)
+
+可以依照自己的需求引入整個(套件)Packages或單一的類別/屬性(classes)
+
+#### 語法:
+```
+import packages.name.Class;  // 只引入套件當中單一的類別
+import packages.name.*;      // 引入整個套件
+```
+
+e.g.:
+```
+// 引入java.util這個套件裡面的Scanner這個類別
+import java.util.Scanner;
+
+// 要使用Scanner則需要建立該類別的物件，並可以使用該類別中的任何方法
+
+class MyClass {
+    public static void main(String[] args) {
+        // 建立Scanner類別的物件
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Enter username");
+
+        // 使用nextLine()方法
+        String userName = myObj.nextLine();
+        System.out.println("Username is: " + userName);
+    }
+}
+
+```
