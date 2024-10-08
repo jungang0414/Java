@@ -1886,7 +1886,98 @@ class Main {
         pig.animalSound();
     }
 }
-
 ```
 
+# Java Inner Classes
 
+嵌套類別，類別中的類別
+目的在於將屬於一起類別分組並放在一塊方便管理。
+
+要存取內部類別，則需要先建立外部類別的物件，再建立內部類別的物件
+```
+
+class Outside {
+    int x = 10;
+
+    class Inner {
+        int y = 20;
+    }
+}
+
+
+class NestClass {
+
+    public static void main(String[] args) {
+        Outside outside = new Outside();
+        Outside.Inner inner = outside.new Inner();
+        System.out.println(outside.x * inner.y);
+    }
+}
+```
+
+在嵌套類別當中也可以將內部類別宣告為私有或是受保護以及靜態
+
+#### 若不希望內部類別被存取則可以使用private宣告
+```
+class Outside {
+    int x = 10;
+
+    private class Inner {
+        int y = 20;
+    }
+}
+
+class NestClass {
+
+    public static void main(String[] args) {
+        Outside outside = new Outside();
+        Outside.Inner inner = outside.new Inner(); // error: Outside.Inner has private access in Outside
+        System.out.println(outside.x * inner.y);
+    }
+}
+```
+
+#### 內部類別也可以用靜態宣告
+
+不需要建立外部類別的物件就可以存取內部類別
+```
+class Outside {
+    int x = 10;
+
+    static class Inner {
+        int y = 20;
+    }
+}
+
+class NestClass {
+
+    public static void main(String[] args) {
+        Outside.Inner inner = new Outside.Inner(); 
+        System.out.println(inner.y); // 20
+    }
+}
+```
+
+#### 內部類別可以存取外部類別中的屬性/方法
+
+```
+class Outside {
+
+    int x = 10;
+
+    class Inner {
+        public int innerMethod() {
+            return x;
+        }
+    }
+}
+
+public class NestClass {
+  public static void main(String[] args) {
+    Outside myOuter = new Outside();
+    Outside.Inner myInner = myOuter.new Inner();
+    System.out.println(myInner.innerMethod());    // 10
+  }
+}
+
+```
