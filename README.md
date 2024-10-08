@@ -1759,5 +1759,40 @@ class MyClass {
         System.out.println("Username is: " + userName);
     }
 }
+```
+
+## User-defined Packages
+
+要自行建立套件，需要使用 package 關鍵字
+就像資料夾有階層一樣
+
+> └── root
+>  └── mypack
+>    └── MyPackageClass.java
 
 ```
+// 包名小寫 避免與類別名稱衝突
+package mypack;
+class MyPackageClass {
+    public static void main(String[] args) {
+        System.out.println("This is my package!");
+    }
+}
+```
+1. 在相同目錄底下創建一個class
+```
+javac MyPackageClass.java
+```
+
+2. 將套件創建在相同目錄底下 使用 -d .
+```
+javac -d . MyPackageClass.java
+```
+
+3. 使用剛才創建的mypack套件中的MyPackageClass類別
+```
+java mypack.MyPackageClass
+```
+
+4. output
+> This is my package!
