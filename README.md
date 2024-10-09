@@ -1979,5 +1979,48 @@ public class NestClass {
     System.out.println(myInner.innerMethod());    // 10
   }
 }
+```
 
+# Java Abstraction 
+
+> abstract 是非存取修飾關鍵字
+> 資料抽象化，主要是隱藏一些實作細節，僅提供實作的結果資料給使用者知曉。
+
+1. Abstract Class  抽象類別
+抽象類別是一種不可以被實例化的類別，它可以包含抽象方法(無實作)、具體方法(有實作)。主要用來定義一個模板，讓子類別繼承並實作具體的行為。
+
+2. Abstract Method 抽象方法
+抽象方法是一種沒有實作的方法，沒有方法的主體，主體由繼承的子類別所提供。
+
+**資料抽象化優點是具有安全性，隱藏某些細節並只顯示物件的重要細節**
+
+```
+// Abstract 抽象化
+
+// superclass 父類別又稱超類別
+abstract class Animal {
+    // abstract method
+    public abstract void animalSound();
+
+    public void sleep() {
+        System.out.println("Zzz");
+    }
+}
+
+// supclass   子類別繼承父類別
+class Pig extends Animal {
+
+    public void animalSound() {
+        System.out.println("wee wee");
+    }
+}
+
+class AbstractClass {
+
+    public static void main(String[] args) {
+        Pig pig = new Pig();
+        pig.animalSound();
+        pig.sleep();
+    }
+}
 ```
