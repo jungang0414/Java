@@ -2024,3 +2024,48 @@ class AbstractClass {
     }
 }
 ```
+
+# Java Interface
+
+另一種實作抽象化的方式是介面
+> 介面是"完全"抽象類別，將方法與空主體組合在一起
+> 要使用介面方法與繼承的方式相同只是使用的關鍵字不同 這裡使用 implements
+
+1. 介面無法建立物件.
+2. 在介面中方法沒有主體，主體由實作類別來實現.
+3. 介面方法預設為 abstarct and public，介面屬性則預設為public, static and final.
+4. 介面不包含建構函數 (因為無法建立類別的物件)
+
+**在Java中不具備多重繼承，不過可以使用介面來實現**
+
+e.g.: 
+```
+// interface 
+interface School {
+    public void place();
+}
+
+interface Teacher {
+    public void name();
+}
+
+// implements 
+class Student implements School, Teacher {
+
+    public void place() {
+        System.out.println("TPE School");
+    }
+
+    public void name() {
+        System.out.println("John");
+    }
+}
+
+class InterfaceClass {
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.place();
+        student.name();
+    }
+}
+```
