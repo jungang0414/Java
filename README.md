@@ -2102,3 +2102,30 @@ class EnumsClass {
         System.out.println(myVar);
     }
 }
+```
+
+in Switch
+```
+// 列舉 常數要大寫並以逗號分隔
+enum Level {
+    LOW,
+    MEDIUM,
+    HIGH
+}
+
+public class EnumsClass {
+    public static void main(String[] args) {
+        // 存取列舉中的常數 使用 .存取
+        Level myVar = Level.LOW;
+        // Switch
+        switch (myVar) {
+            case LOW:
+                System.out.println("LOW");
+            case MEDIUM:
+                System.out.println("MEDIUM");
+            case HIGH:
+                System.out.println("HIGH");
+        }
+    }
+}
+```
