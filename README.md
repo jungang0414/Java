@@ -2069,3 +2069,36 @@ class InterfaceClass {
     }
 }
 ```
+
+## Enums 
+
+當確定值為不可變時可以使用 列舉(枚舉)
+用於表示一組常數(不可變)
+
+e.g.: 
+> 使用關鍵字 enum 建立一組常數分別由逗號隔開，常數名稱為大寫
+> 要存取列舉中的常數時則用 .存取
+```
+enum Level {
+    LOW,
+    MEDIUM,
+    HIGH
+}
+
+Level myVar = Level.LOW;
+```
+
+in class :
+```
+class EnumsClass {
+    enum Level {
+        LOW,
+        MEDIUM,
+        HIGH
+    }
+
+    public static void main(String[] args) {
+        Level myVar = Level.LOW;
+        System.out.println(myVar);
+    }
+}
