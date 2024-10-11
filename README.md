@@ -2185,3 +2185,44 @@ public class DateClass {
     }
 }
 ```
+
+
+## Java ArrayList
+
+java內建陣列與ArrayList的差別在於陣列大小無法改變，
+若是要新增或刪除陣列中元素則必須要新增一個新的陣列。
+
+e.g.: 
+用ArrayList所建立的陣列則中可以隨時新增或刪除陣列中的元素
+```
+import java.util.ArrayList;
+
+public class ArrayListClass {
+    public static void main(String[] args) {
+        // 建立ArrayList類別的物件並新增變數名稱為cars的字串陣列
+        ArrayList<int> cars = new ArrayList<int>();
+        // 使用ArrrayList類別中的 add()方法 在cars陣列當中新增元素
+        cars.add("one");
+        cars.add("two");
+        System.out.println(cars); // [one, two]
+        // 也可以透過索引值來新增元素在指定的位置 陣列索引值從頭由0開始計算
+        cars.add(0, "true one");
+        System.out.println(cars); // [true one, one, two]
+        // 使用索引值來存取陣列元素
+        String txt = cars.get(0);
+        System.out.println(txt); // true one
+        // 修改陣列中的元素
+        cars.set(0, "true");
+        System.out.println(cars); // [true, one, two]
+        // 刪除陣列中元素
+        cars.remove(0);
+        System.out.println(cars); // [one, two]
+        // 刪除陣列中所有元素
+        cars.clear();
+        System.out.println(cars); // []
+        // 檢查陣列大小
+        System.out.println(cars.size()); // 0
+    }
+}
+```
+
