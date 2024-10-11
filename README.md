@@ -2226,3 +2226,65 @@ public class ArrayListClass {
 }
 ```
 
+循環遍歷陣列當中的元素 
+for-loop
+```
+import java.util.ArrayList;
+
+public class LoopArrayClass {
+    public static void main(String[] args) {
+        ArrayList<String> nums = new ArrayList<String>();
+        nums.add("1");
+        nums.add("2");
+        nums.add("3");
+        System.out.println(nums);
+        for (int i = 0; nums.size() > i; i++) {
+            System.out.println(nums.get(i));
+        }
+    }
+}
+```
+
+for-each
+```
+import java.util.ArrayList;
+
+public class LoopArrayClass {
+    public static void main(String[] args) {
+        ArrayList<String> nums = new ArrayList<String>();
+        nums.add("1");
+        nums.add("2");
+        nums.add("3");
+        System.out.println(nums);
+        for (String i = nums) {
+            System.out.println(nums.get(i));
+        }
+    }
+}
+```
+
+建立陣列時同時會先設定好陣列的類型
+若是要建立其他類型的陣列則需要建立對應的類型。
+
+e.g.: int類型陣列
+```
+import java.util.ArrayList;
+// 
+import java.util.Collections;
+
+public class LoopArrayClass {
+    public static void main(String[] args) {
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        nums.add(10);
+        nums.add(30);
+        nums.add(20);
+        nums.add(40);
+        for (int i : nums) {
+            System.out.println(i);
+        }
+        // 
+        Collections.sort(nums);   // [10, 20, 30, 40]
+        System.out.println(nums); // [10, 20, 30, 40]
+    }
+}
+```
