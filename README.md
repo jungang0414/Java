@@ -2133,3 +2133,55 @@ public class EnumsClass {
     }
 }
 ```
+
+## Java Dates 
+
+import java包 主要展示如何在自己的當中class當中引用其他package的類別並使用
+在java中並沒有 built-in Date 類別, 就可以引入java.time.className 來使用
+
+| 類別(className)    | 用途                 |
+| LocalDate         | 取得目前年月日        |
+| LocalTime         | 取得目前時間          |
+| LocalDateTime     | 取得目前年月日/時間    |
+| DateTimeFormatter | 取得格式化後的日期時間  |
+
+
+e.g.: LocalDate class
+```
+// 引入包
+import java.time.LocalDate;
+
+public class DateClass {
+    public static void main(String[] args) {
+        // 建立LocalDate類別的物件
+        // 並使用物件中的 now()方法
+        LocalDate myDate = LocalDate.now();
+        System.out.println(myDate); // 2024-10-11
+    } 
+}
+```
+
+e.g.: LocalTime class
+```
+// 引入包
+import java.time.LocalTime;
+
+public class DateClass {
+    public static void main(String[] args) {
+        LocalTime myTime = LocalTime.now(); // 14:46:57.251062600
+        System.out.println(myTime);
+    }
+}
+```
+
+e.g.: LocalDateTime
+```
+import java.time.LocalDateTime;
+
+public class DateClass {
+    public static void main(Srting[] args) {
+        LocalDateTime myDateTime = LocalDateTime.now();
+        System.out.println(myDateTime); // 2024-10-11T14:49:44.757740700
+    }
+}
+```
