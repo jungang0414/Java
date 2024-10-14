@@ -13,7 +13,10 @@ public class LoopArrayClass {
             System.out.println(i);
         }
         // 
-        Collections.sort(nums);
-        System.out.println(nums);
+        // Collections.sort(nums);   // [10, 20, 30, 40]
+        // System.out.println(nums); // [10, 20, 30, 40]
+        // 
+        Collections.sort(nums, Collections.reverseOrder());
+        System.out.println(nums); // [40, 30, 20, 10]
     }
 }

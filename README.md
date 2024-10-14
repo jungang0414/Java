@@ -2282,9 +2282,13 @@ public class LoopArrayClass {
         for (int i : nums) {
             System.out.println(i);
         }
-        // 
-        Collections.sort(nums);   // [10, 20, 30, 40]
-        System.out.println(nums); // [10, 20, 30, 40]
+        // 排序陣列
+        // Collections.sort(nums);   // [10, 20, 30, 40]
+        // System.out.println(nums); // [10, 20, 30, 40]
+        // 倒序陣列
+        Collections.sort(nums, Collections.reverseOrder());
+        System.out.println(nums); // [40, 30, 20, 10]
     }
 }
 ```
+
