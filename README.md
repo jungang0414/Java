@@ -2622,3 +2622,47 @@ public class ThrowClass {
     }
 }
 ```
+
+# Java Regular Expressions
+
+RegEX 正規表達式
+正規表達式是形成搜尋模式的字元序列，
+當想要在文字中搜尋想要的內容時，則可以使用此搜尋模式來描述要搜尋的內容。
+
+1. 正規表達式可以是單一字符也可以是更複雜的模式
+2. 正規表達式可以用於執行所有類型的文字搜尋和文字取代操作
+3. 在Java當中並沒有內建正規表達式的類別，所以要匯入import.util.Regex套件來使用
+
+- Pattern Class - 定義模式
+- Matcher Class - 用於搜尋模式
+
+[java.util.regex](https://docs.oracle.com/javase/8/docs/api/index.html?java/util/regex/package-summary.html)
+
+[w3school regex](https://www.w3schools.com/java/java_regex.asp)
+```
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class RegExClass {
+    public static void main(String[] args) {
+        // 創建正規表達式模式
+        // 編譯正規表達式"Hello",並設置匹配時不分大小寫
+        Pattern pattern = Pattern.compile("Hello", Pattern.CASE_INSENSITIVE);
+        // 創建匹配器
+        // 使用編譯好的模式來匹配字串
+        // 這裡要匹配的字串為"Hello World!!"
+        Matcher matcher = pattern.matcher("Hello World!!");
+        // 執行匹配器
+        // 當找到則返回true 否則false
+        boolean matchFound = matcher.find();
+        // 根據匹配的結果執行程式碼
+        if (matchFound) {
+            System.out.println("Match found");
+        } else {
+            System.out.println("Match not found");
+        }
+    }
+}
+```
+
+
