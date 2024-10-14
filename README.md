@@ -2330,3 +2330,13 @@ System.out.println(capitalCities); // {}
 // 查詢大小 size();
 System.out.println(capitalCities.size()); // 0
 ```
+
+當需要循環遍歷取得hashMap建立的物件中的key/value
+分別需要使用各自不同的方法來存取
+
+key: 物件.keySet()
+valut: 物件.values()
+```
+
+
+```
