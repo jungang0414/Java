@@ -2292,3 +2292,41 @@ public class LoopArrayClass {
 }
 ```
 
+## Java HashMap
+
+HashMap將項目儲存在 key/value 並使用key去存取value
+可以將一個物件當作另一個物件(值)的鍵(索引)
+可以儲存不同類型: String keys and Integer values, or String keys and String values
+
+建立 HashMap object
+```
+import java.util.HashMap;
+
+HashMap<String, String> capitalCities = new HashMap(String, String)();
+```
+
+HashMap類別中的方法
+```
+import java.util.HashMap;
+
+HashMap<String, String> capitalCities = new HashMap(String, String)();
+
+// 新增 put();
+capitalCities.put("England", "London");
+capitalCities.put("Germany", "Berlin");
+System.out.println(capitalCities);
+
+// 存取 get();
+System.out.println(capitalCities.get("England")); // "London"
+
+// 刪除 remove();
+capitalCities.remove("England");
+System.out.println(capitalCities); // {Germany=Berlin}
+
+// 全部刪除 clear();
+capitalCities.clear();
+System.out.println(capitalCities); // {}
+
+// 查詢大小 size();
+System.out.println(capitalCities.size()); // 0
+```
