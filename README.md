@@ -2420,3 +2420,81 @@ public class HashSetClass {
     }
 }
 ```
+
+
+## Java Iterator
+
+迭代是可以用來循環集合的對象
+像是ArrayList and HashSet，迭代其實就是循環的技術術語
+
+```
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class IteratorClass {
+    public static void main(String[] args) {
+        // 建立String類型的物件並新增元素
+        ArrayList<String> cars = new ArrayList<String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Toyota");
+        cars.add("Audi");
+
+        // 建立cars物件的迭代器
+        Iterator<String> it = cars.iterator();
+
+        // 使用迭代器的方法取得物件中的元素 依照順序列印物件中的項目
+        System.out.println(it.next()); // Volvo
+    }
+}
+```
+
+當我們要使用迭代器來循環遍歷陣列中的元素時
+必須要使用hasNext()方法和next()方法並用 while
+
+```
+public class IteratorClass {
+    public static void main(String[] args) {
+        ArrayList<String> nums = new ArrayList<String>();
+
+        Iterator<String> it = cars.interator();
+
+        while (it.hasNext()) {
+            if (it.next() <= 10) {
+                System.out.println(it.next());
+            }
+        }
+    }
+}
+```
+
+使用迭代器中的remove()方法來刪除陣列中元素
+
+```
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class IteratorClass {
+    public static void main(String[] args) {
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        nums.add(11);
+        nums.add(1);
+        nums.add(5);
+        nums.add(6);
+
+        // 建立nums物件的迭代器
+        Iterator<Integer> it = nums.iterator();
+
+        // 使用while 透過hasNext遍歷cars陣列中元素
+        // 並使用if檢查元素是否符合所設條件若不合則刪除元素
+        while(it.hasNext()) {
+            Integer i = it.next();
+            if (i > 10) {
+                it.remove();
+            }
+        }
+
+        System.out.println(nums);
+    }
+}
+```
