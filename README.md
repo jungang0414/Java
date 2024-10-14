@@ -2595,3 +2595,30 @@ public class Main {
   }
 }
 ```
+
+## The throw keyword
+
+throw 語句允許自訂錯誤
+通常會與異常類型一起執行。
+在java當中有許多異常的類型可以使用
+
+1. ArithmeticException          : 算術異常
+2. FileNotFoundException        : 找不到文件
+3. ArrayIndexOutBoundsException : 陣列的索引值超出邊界
+
+```
+public class ThrowClass {
+    static void checkAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("must be at least 18 years old");
+        }
+        else {
+            System.out.println("old enough");
+        }
+    }
+
+    public static void main(String[] args) {
+        checkAge(20);
+    }
+}
+```
