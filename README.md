@@ -2498,3 +2498,37 @@ public class IteratorClass {
     }
 }
 ```
+
+## Java Wrapper 
+
+包裝類別提供了將原始資料類型包裝成物件的方法
+String是物件且不是原始資料類型所以可以直接使用
+但如果是 (int, char, boolean...)這些原始資料類型沒辦法包裝成物件
+所以必須要使用原始資料類型所對應的包裝類別來建立物件。
+
+| 原始資料類型 | 對應包裝類別 |
+| byte | Byte |
+| short| Short |
+| int  | Integer|
+| long | Long |
+| float| Float |
+| double | Double |
+| boolean | Boolean |
+| char | Character |
+
+e.g.: 當要將int類型包裝成物件時
+```
+import java.util.ArrayList;
+
+public class WrapperClass {
+    public static void main(String[] args) {
+
+        // ArrayList<int> nums = new ArrayList<int>(); // 這是錯的
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+
+        Integer num = 5;
+        System.out.println(num); // 5
+        System.out.println(num.intValue()); // 5
+    }
+}
+```
