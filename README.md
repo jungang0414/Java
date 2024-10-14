@@ -2645,7 +2645,17 @@ public class ThreadClass extends Thread {
 
 2. 實作Runnable線程接口，則可以透過將類別的實例傳遞給Thread物件的建構函數然後呼叫start()方法來運行執行緒
 ```
-
+public class ThreadRunnableClass implements Runnable {
+    public static void main(String[] args) {
+        ThreadRunnableClass obj = new ThreadRunnableClass();
+        Thread thread = new Thread(obj);
+        thread.start();
+        System.out.println("This code is outside of the thread");
+    }
+    public void run() {
+        System.out.println("This code is running in a thread");
+    }
+}
 ```
 
 # Java Regular Expressions
