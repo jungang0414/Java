@@ -2623,6 +2623,31 @@ public class ThrowClass {
 }
 ```
 
+## Java Threads
+
+執行緒允許程式透過同時執行多項的操作來更有效的運行程式。
+
+create a Thread
+
+1. 當該類別擴展Thread類別時，則可以建立該類別的實例，並使用該類別的start()方法來運行執行緒
+```
+public class ThreadClass extends Thread {
+    public static void main(String[] args) {
+        ThreadClass thread = new ThreadClass();
+        thread.start();
+        System.out.println("This code is outside of the thread");
+    }
+    public void run() {
+        System.out.println("This code is running in a thread");
+    }
+}
+```
+
+2. 實作Runnable線程接口，則可以透過將類別的實例傳遞給Thread物件的建構函數然後呼叫start()方法來運行執行緒
+```
+
+```
+
 # Java Regular Expressions
 
 RegEX 正規表達式
@@ -2664,5 +2689,3 @@ public class RegExClass {
     }
 }
 ```
-
-
