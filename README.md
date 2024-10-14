@@ -2532,3 +2532,66 @@ public class WrapperClass {
     }
 }
 ```
+
+## Java Exceptions
+
+在執行程式碼的過程當中可能會出現不同錯誤，
+當發生錯誤的當下Java會停止執行並產生錯誤訊息。
+
+#### Java try and catch
+```
+// try 定義一個程式碼區塊，以便在執行時測試錯誤。
+try {
+    // 程式碼測試區塊
+
+}
+// catch (Exception e) 定義了一個當try區塊的程式碼出現錯誤時要執行的程式碼區塊
+catch {
+    // 當try出現錯誤時要執行的程式碼區塊
+}
+```
+
+當程式碼出現錯誤時 Terminal終端會拋出java內建的錯誤訊息
+```
+public class Main {
+  public static void main(String[ ] args) {
+    int[] myNumbers = {1, 2, 3};
+    System.out.println(myNumbers[10]); // error!
+  }
+}
+
+/*
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 10
+at Main.main(Main.java:4)
+*/
+```
+
+透過try...catch修改後 當try區塊的程式碼出現錯誤，將會執行catch區塊中的程式碼。
+```
+public class Main {
+  public static void main(String[ ] args) {
+    try {
+        int[] myNumbers = {1, 2, 3};
+        System.out.println(myNumbers[10]); 
+    } catch (Exception e) {
+        System.out.println("Error"); // Error
+    }
+  }
+}
+```
+
+finally 區塊則是無論如何皆會執行的程式碼區塊
+```
+public class Main {
+  public static void main(String[ ] args) {
+    try {
+        int[] myNumbers = {1, 2, 3};
+        System.out.println(myNumbers[10]); 
+    } catch (Exception e) {
+        System.out.println("Error"); // Error
+    } finally {
+        System.out.println("finally try and catch"); // finally try and catch
+    }
+  }
+}
+```
