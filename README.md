@@ -2337,6 +2337,86 @@ System.out.println(capitalCities.size()); // 0
 key: 物件.keySet()
 valut: 物件.values()
 ```
+import java.util.HashMap;
 
+public class HashMapClass {
+    public static void main(String[] args) {
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+        capitalCities.put("England", "London");
+        capitalCities.put("Germany", "Berlin");
+        capitalCities.put("Norway", "Oslo");
+        capitalCities.put("USA", "Washington DC");
+        System.out.println(capitalCities);
+        for (String i : capitalCities.keySet()) {
+            System.out.println(i);
+        }
 
+        for (String i : capitalCities.values()) {
+            System.out.println(i);
+        }
+    }
+}
+```
+
+## Java HashSet
+
+HashSet可以建立一個集合，其中的每一個項目都是唯一的
+使用java.util包來取得HashSet類別
+
+```
+import java.util.HashSet;
+
+public class HashSetClass {
+    public static void main(String[] args) {
+        // 使用HashSet建立String類型的cars物件
+        HashSet<String> cars = new HashSet<String>();
+        // 新增陣列元素
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        // 即便再新增了一個BMW, 因為在集合當中每一個項目都是唯一的所以也只會出現一次
+        cars.add("BMW");
+        cars.add("Mazda");
+        System.out.println(cars);
+
+        // 當我們需要確認集合當中是否有這個項目時可以使用 contains();
+        // 回傳布林值 若有 true 否則 false
+        System.out.println(cars.contains("BMW")); // true
+
+        // 刪除 remove();
+        cars.remove("BMW");
+        System.out.println(cars); // [Volvo, Mazda, Ford]
+
+        // 全部刪除 clear();
+        cars.clear();
+        System.out.println(cars); // []
+
+        // 查詢大小 size();
+        System.out.println(cars.size());
+    }
+}
+```
+
+HashSet也可以建立別種類型的物件
+
+```
+import java.util.HashSet;
+
+public class HashSetClass {
+    public static void main(String[] args) {
+        HashSet<Integer> nums = new HashSet<Integer>();
+        nums.add(0);
+        nums.add(7);
+        nums.add(3);
+        nums.add(11);
+        
+        for (int i = 1; i <= 10; i++) {
+            if (nums.contains(i)) {
+                System.out.println(i + " in the nums set");
+            } else {
+                System.out.println(i + " not in the nums set");
+            }
+        }
+    }
+}
 ```
