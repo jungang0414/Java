@@ -2678,6 +2678,93 @@ MathOperation addition = new MathOperation() {
 MathOperation addition = (a, b) -> a + b;
 ```
 
+## Java Advanced Sorting 
+
+進階排序
+若要針對物件進行排序，需要指定一個規則來決定如何對物件排序
+舉例: 汽車列表, 我想要依照汽車的年份進行排序, 規則可能就是較早的年份排序在最上方
+
+
+Comparator: 定義一個外部比較器，用於物件的自定義排序
+```
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+class Car {
+    public String brand;
+    public String model;
+    public int year;
+
+    public Car(String b, String m, int y) {
+        brand = b;
+        model = m;
+        year = y;
+    }
+}
+
+class SortByYear implements Comparator<Car> {
+    @Override
+    public int compare(Car a, Car b) {
+        return a.year - b.year; // 按年份降序排序
+    }
+}
+
+public class ComparatorsClass {
+    public static void main(String[] args) {
+        ArrayList<Car> myCars = new ArrayList<Car>();
+        myCars.add(new Car("BMW", "X6", 2022));
+        myCars.add(new Car("Honda", "Accord", 2007));
+        myCars.add(new Car("Ford", "Mustang", 1975));
+
+        Comparator<Car> myComparator = new SortByYear();
+        Collections.sort(myCars, myComparator); // 使用自定義排序
+
+        for (Car c : myCars) {
+            System.out.println(c.brand + " " + c.model + " " + c.year);
+        }
+    }
+}
+```
+
+Comparable:  物件本身實現此接口，並定義排序順序
+```
+import java.util.ArrayList;
+import java.util.Collections;
+
+class Car implements Comparable<Car> {
+    public String brand;
+    public String model;
+    public int year;
+
+    public Car(String b, String m, int y) {
+        brand = b;
+        model = m;
+        year = y;
+    }
+
+    @Override
+    public int compareTo(Car other) {
+        return this.year - other.year; // 
+    }
+}
+
+public class ComparatorsClass {
+    public static void main(String[] args) {
+        ArrayList<Car> myCars = new ArrayList<Car>();
+        myCars.add(new Car("BMW", "X6", 2022));
+        myCars.add(new Car("Honda", "Accord", 2007));
+        myCars.add(new Car("Ford", "Mustang", 1975));
+
+        Collections.sort(myCars); // 
+
+        for (Car c : myCars) {
+            System.out.println(c.brand + " " + c.model + " " + c.year);
+        }
+    }
+}
+```
+
 # Java Regular Expressions
 
 RegEX 正規表達式
