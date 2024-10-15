@@ -2658,6 +2658,26 @@ public class ThreadRunnableClass implements Runnable {
 }
 ```
 
+## Java Lambda Expressions
+
+Java 8 加入了 Lambda 表達式
+使代碼更加簡潔、可讀性高
+
+1. 使用匿名內部類別時，每個操作都需要定義一個物件，而 Lambda 則使用簡單的語法來實現操作。
+```
+
+// 使用匿名內部類時 每個操作都需要定義一次新的匿名內部類
+MathOperation addition = new MathOperation() {
+    @Override
+    public int operation(int a, int b) {
+        return a + b;
+    }
+}
+
+// 使用 Lambda 則不需要每一次都定義一次新的匿名內部類
+MathOperation addition = (a, b) -> a + b;
+```
+
 # Java Regular Expressions
 
 RegEX 正規表達式
