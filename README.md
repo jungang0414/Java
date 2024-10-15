@@ -2880,3 +2880,30 @@ public class FileWriteClass {
     }
 }
 ```
+
+Read a File
+```
+// 引入套件
+import java.io.File;
+// 引入Scanner套件讀取文件
+import java.util.Scanner; 
+// 引入錯誤處理套件
+import java.io.FileNotFoundException;
+
+public class FileReadClass {
+    public static void main(String[] args) {
+        try {
+            File myObj = new File("filename.txt");
+            Scanner scanner = new Scanner(myObj);
+            while (myObj.hasNextLine()) {
+                String data = myObj.nextLine();
+                System.out.println(data);
+            }
+            myObj.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File Error");
+            e.printStackTrace();
+        }
+    }
+}
+```
