@@ -2706,7 +2706,7 @@ class Car {
 class SortByYear implements Comparator<Car> {
     @Override
     public int compare(Car a, Car b) {
-        return a.year - b.year; // 按年份降序排序
+        return b.year - a.year; // 按年份降序排序
     }
 }
 
@@ -2803,6 +2803,59 @@ public class RegExClass {
         } else {
             System.out.println("Match not found");
         }
+    }
+}
+```
+
+# Java File
+
+Java具有多種建立、讀取、更新、刪除檔案的方法
+
+## Java File Handling
+
+
+引入[java.io套件](https://www.istak.org.tw/Java_6_API_CH/java/io/package-summary.html)
+
+```
+import java.io.File;
+
+// 這裡要使用File，需要建立File的物件並指定要處理的檔案名稱 (檔案要放在與java相同目錄裡)
+File myObj = new File("filename.txt");
+```
+
+在File類別當中有許多方法
+
+| 方法 | 類型 | 說明 |
+| canRead() | Boolean | 測試文件是否可讀取 |
+| canWrite()| Boolean | 測試文件是否可寫(修改) |
+| createNewFile() | Boolean | 建立一個空文件 |
+| delete() | Boolean | 刪除文件 |
+| exists() | Boolean | 測試文件是否存在 |
+| getName() | String | 回傳文件的名稱 |
+| getAbsolutePath() | String | 回傳文件的絕對路徑 |
+| length() | Long | 回傳檔案的大小 (bytes) |
+| list() | String[] | 回傳目錄中的檔案陣列 |
+| mkdir() | Boolean | 建立一個目錄 |
+
+Create File
+```
+import java.io.File;
+
+public class FileClass {
+    public static void main(String[] args) {
+        // 
+        try {
+            // 
+            File myObj = new File("filename.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (Exception e) {
+            System.out.println("File Error.");
+        }
+        
     }
 }
 ```
