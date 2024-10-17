@@ -2907,3 +2907,42 @@ public class FileReadClass {
     }
 }
 ```
+
+Delete a File
+```
+// 引入套件
+import java.io.File;
+
+public class DeleteClass 
+{
+    public static void main(String[] args)
+    {
+        // 建立File類別的物件
+        File myObj = new File();
+        // 使用delete()方法
+        if (myObj.delete()) {
+            System.out.println("Deleted the file: " + myObj.getName());
+        } else {
+            System.out.println("Failed to delete the file.")
+        }
+    }
+}
+```
+
+Delete a Folder (必須為空)
+```
+// 引入套件
+import java.io.File; 
+
+public class DeleteClass {
+  public static void main(String[] args) { 
+    // 建立File類別的物件, ()放入folder的路徑
+    File myObj = new File("C:\\Users\\MyName\\Test"); 
+    if (myObj.delete()) { 
+      System.out.println("Deleted the folder: " + myObj.getName());
+    } else {
+      System.out.println("Failed to delete the folder.");
+    } 
+  } 
+}
+```
